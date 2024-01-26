@@ -58,9 +58,9 @@ export default function App() {
 
   // Function to toggle attending status of a guest
   const toggleAttending = (id, attending) => {
-    // Make a PATCH request to update attending status
+    // Make a PUT request to update attending status
     fetch(`${apiUrl}/${id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
