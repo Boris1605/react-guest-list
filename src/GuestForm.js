@@ -21,6 +21,7 @@ export default function GuestForm(props) {
         id="firstName"
         value={firstName}
         onChange={(event) => setFirstName(event.currentTarget.value)}
+        disabled={props.isLoading}
       />
 
       <label htmlFor="lastName">Last name</label>
@@ -29,6 +30,7 @@ export default function GuestForm(props) {
         value={lastName}
         onChange={(event) => setLastName(event.currentTarget.value)}
         onKeyDown={handleKeyDown}
+        disabled={props.isLoading}
       />
     </div>
   );

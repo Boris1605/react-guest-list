@@ -88,7 +88,7 @@ export default function App() {
       ) : (
         <>
           <br />
-          <GuestForm onAddGuest={addGuest} />
+          <GuestForm onAddGuest={addGuest} isLoading={isLoading} />
           <br />
           <GuestList
             guests={guests}
