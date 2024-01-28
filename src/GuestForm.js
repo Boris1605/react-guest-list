@@ -20,7 +20,7 @@ export default function GuestForm(props) {
       <input
         id="firstName"
         value={firstName}
-        onChange={(event) => setFirstName(event.currentTarget.value)}
+        onChange={(event) => setFirstName(event.target.value)}
         disabled={props.isLoading}
       />
 
@@ -28,10 +28,11 @@ export default function GuestForm(props) {
       <input
         id="lastName"
         value={lastName}
-        onChange={(event) => setLastName(event.currentTarget.value)}
+        onChange={(event) => setLastName(event.target.value)}
         onKeyDown={handleKeyDown}
         disabled={props.isLoading}
       />
+      {props.isLoading && <p>Loading...</p>}
     </div>
   );
 }
