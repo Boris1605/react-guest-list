@@ -5,6 +5,7 @@ export default function GuestList(props) {
       {props.guests.map((guest) => (
         <div key={`guest-${guest.id}`} data-test-id="guest">
           <p>{`${guest.firstName} ${guest.lastName}`}</p>
+          <br />
           <input
             type="checkbox"
             id={`attending-${guest.id}`}

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import styles from './App.module.scss';
 import GuestForm from './GuestForm';
 import GuestList from './GuestList';
 
-const apiUrl = 'http://localhost:4000/guests';
+const baseUrl = 'http://localhost:4000/guests';
 
 export default function App() {
   const [guests, setGuests] = useState([]);
@@ -11,7 +12,7 @@ export default function App() {
   useEffect(() => {
     // Function to fetch guest data on initial render
     const firstFetch = () => {
-      fetch(apiUrl)
+      fetch(baseUrl)
         .then((response) => response.json())
         .then((data) => {
           setGuests(data);
@@ -36,7 +37,7 @@ export default function App() {
     };
 
     // Make a POST request to add the new guest
-    fetch(apiUrl, {
+    fetch(baseUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export default function App() {
   // Function to remove a guest
   const removeGuest = (id) => {
     // Make a DELETE request to remove the guest
-    fetch(`${apiUrl}/${id}`, { method: 'DELETE' })
+    fetch(`${baseUrl}/${id}`, { method: 'DELETE' })
       .then(() => setGuests(guests.filter((guest) => guest.id !== id)))
       .catch((error) => console.error('Error removing guest:', error));
   };
@@ -59,7 +60,7 @@ export default function App() {
   // Function to toggle attending status of a guest
   const toggleAttending = (id, attending) => {
     // Make a PUT request to update attending status
-    fetch(`${apiUrl}/${id}`, {
+    fetch(`${baseUrl}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -80,13 +81,15 @@ export default function App() {
 
   // Render the component
   return (
-    <div>
-      <h1>Guest List</h1>
+    <div className={styles.app}>
+      <h1 className={styles.header}>Guest List</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
+          <br />
           <GuestForm onAddGuest={addGuest} />
+          <br />
           <GuestList
             guests={guests}
             onRemoveGuest={removeGuest}
