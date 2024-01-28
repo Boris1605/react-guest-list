@@ -78,10 +78,7 @@ export default function App() {
         console.error('Error updating attending status:', error),
       );
   };
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  // Render the component
+
   return (
     <div className={styles.app}>
       <h1 className={styles.header}>Guest List</h1>
