@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function GuestForm(props) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
+  useEffect(() => {
+    // Reset form fields when isLoading changes to false
+    if (!props.isLoading) {
+      setFirstName('');
+      setLastName('');
+    }
+  }, [props.isLoading]);
 
   // Handle key down event for submitting the form on Enter
   const handleKeyDown = (event) => {
