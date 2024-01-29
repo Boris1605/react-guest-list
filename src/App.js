@@ -4,7 +4,7 @@ import GuestForm from './GuestForm';
 import GuestList from './GuestList';
 
 const baseUrl =
-  'https://replit.com/@borisdjuric/express-guest-list-api-memory-data-store#index.ts';
+  'https://replit.com/@borisdjuric/express-guest-list-api-memory-data-store';
 
 export default function App() {
   const [guests, setGuests] = useState([]);
