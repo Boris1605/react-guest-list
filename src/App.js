@@ -3,7 +3,8 @@ import styles from './App.module.scss';
 import GuestForm from './GuestForm';
 import GuestList from './GuestList';
 
-const baseUrl = 'http://localhost:4000/guests';
+const baseUrl =
+  'https://replit.com/@borisdjuric/express-guest-list-api-memory-data-store#index.ts';
 
 export default function App() {
   const [guests, setGuests] = useState([]);
